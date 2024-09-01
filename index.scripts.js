@@ -23,6 +23,8 @@ function downloadPDF() {
 }
 
 function translateToEnglish() {
+    console.log('开始转换为英文');
+
     const translations = {
         '张三': 'John Doe',
         'Email: zhangsan@example.com': 'Email: john.doe@example.com',
@@ -34,12 +36,27 @@ function translateToEnglish() {
         '在线教育平台': 'Online Education Platform'
     };
 
-    document.getElementById('name').innerText = translations['张三'];
-    document.getElementById('email').innerText = translations['Email: zhangsan@example.com'];
-    document.getElementById('phone').innerText = translations['电话: 123-456-7890'];
-    document.getElementById('address').innerText = translations['地址: 北京市朝阳区'];
-    document.getElementById('education').innerText = translations['北京大学 - 计算机科学与技术专业'];
-    document.getElementById('experience').innerText = translations['ABC科技有限公司 - 软件工程师'];
-    document.getElementById('skills').innerText = translations['熟练掌握Java、Python编程语言'];
-    document.getElementById('projects').innerText = translations['在线教育平台'];
+    const elements = {
+        'name': document.getElementById('name'),
+        'email': document.getElementById('email'),
+        'phone': document.getElementById('phone'),
+        'address': document.getElementById('address'),
+        'education': document.getElementById('education'),
+        'experience': document.getElementById('experience'),
+        'skills': document.getElementById('skills'),
+        'projects': document.getElementById('projects')
+    };
+
+    for (const key in elements) {
+        const originalText = elements[key].innerText;
+        const translatedText = translations[originalText];
+        if (translatedText) {
+            elements[key].innerText = translatedText;
+            console.log(`已翻译: ${originalText} -> ${translatedText}`);
+        } else {
+            console.log(`未找到翻译: ${originalText}`);
+        }
+    }
+
+    console.log('转换为英文完成');
 }
