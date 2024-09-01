@@ -60,3 +60,12 @@ function translateToEnglish() {
 
     console.log('转换为英文完成');
 }
+
+// 确保按钮存在并绑定事件
+const translateBtn = document.getElementById('translate-btn');
+if (translateBtn) {
+    console.log('已找到转英文按钮');
+    translateBtn.addEventListener('click', translateToEnglish);
+} else {
+    console.error('未找到转英文按钮');
+}
