@@ -2,12 +2,73 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM完全加载并解析');
 
     document.getElementById('download-pdf-btn').addEventListener('click', downloadPDF);
-    document.getElementById('translate-btn').addEventListener('click', translateToEnglish);
+    document.getElementById('translate-btn').addEventListener('click', toggleLanguage);
+
+    let currentLanguage = 'zh';
+
+    const translations = {
+        zh: {
+            translation: {
+                'name': '张三',
+                'email': 'Email: zhangsan@example.com',
+                'phone': '电话: 123-456-7890',
+                'address': '地址: 北京市朝阳区',
+                'education_title': '教育背景',
+                'education': '北京大学 - 计算机科学与技术专业',
+                'experience_title': '工作经历',
+                'experience': 'ABC科技有限公司 - 软件工程师',
+                'skills_title': '技能',
+                'skills': '熟练掌握Java、Python编程语言',
+                'projects_title': '项目经验',
+                'projects': '在线教育平台'
+            }
+        },
+        en: {
+            translation: {
+                'name': 'John Doe',
+                'email': 'Email: john.doe@example.com',
+                'phone': 'Phone: 123-456-7890',
+                'address': 'Address: Chaoyang District, Beijing',
+                'education_title': 'Education Background',
+                'education': 'Peking University - Computer Science and Technology',
+                'experience_title': 'Work Experience',
+                'experience': 'ABC Technology Co., Ltd. - Software Engineer',
+                'skills_title': 'Skills',
+                'skills': 'Proficient in Java, Python programming languages',
+                'projects_title': 'Project Experience',
+                'projects': 'Online Education Platform'
+            }
+        }
+    };
+
+    i18next.init({
+        lng: currentLanguage,
+        resources: translations
+    }, (err, t) => {
+        if (err) return console.error('i18next 初始化失败', err);
+        updateContent();
+    });
+
+    function updateContent() {
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            element.innerText = i18next.t(key);
+        });
+    }
+
+    function toggleLanguage() {
+        currentLanguage = currentLanguage === 'zh' ? 'en' : 'zh';
+        i18next.changeLanguage(currentLanguage, (err, t) => {
+            if (err) return console.error('切换语言失败', err);
+            updateContent();
+            document.getElementById('translate-btn').innerText = currentLanguage === 'zh' ? 'English Version' : '中文版';
+        });
+    }
 
     function downloadPDF() {
         console.log('开始生成PDF');
-        const button = document.getElementById('download-pdf-btn');
-        button.style.display = 'none'; // 隐藏按钮
+        const buttons = document.querySelectorAll('.buttons button');
+        buttons.forEach(button => button.style.display = 'none'); // 隐藏所有按钮
 
         const element = document.getElementById('resume');
         html2pdf().from(element).set({
@@ -18,49 +79,10 @@ document.addEventListener('DOMContentLoaded', () => {
             jsPDF: { unit: 'pt', format: 'a4', orientation: 'portrait' }
         }).save().then(() => {
             console.log('PDF生成完成');
-            button.style.display = 'inline-block'; // 显示按钮
+            buttons.forEach(button => button.style.display = 'inline-block'); // 显示所有按钮
         }).catch((error) => {
             console.error('PDF生成失败', error);
-            button.style.display = 'inline-block'; // 显示按钮
+            buttons.forEach(button => button.style.display = 'inline-block'); // 显示所有按钮
         });
-    }
-
-    function translateToEnglish() {
-        console.log('开始转换为英文');
-
-        const translations = {
-            '张三': 'John Doe',
-            'Email: zhangsan@example.com': 'Email: john.doe@example.com',
-            '电话: 123-456-7890': 'Phone: 123-456-7890',
-            '地址: 北京市朝阳区': 'Address: Chaoyang District, Beijing',
-            '北京大学 - 计算机科学与技术专业': 'Peking University - Computer Science and Technology',
-            'ABC科技有限公司 - 软件工程师': 'ABC Technology Co., Ltd. - Software Engineer',
-            '熟练掌握Java、Python编程语言': 'Proficient in Java, Python programming languages',
-            '在线教育平台': 'Online Education Platform'
-        };
-
-        const elements = {
-            'name': document.getElementById('name'),
-            'email': document.getElementById('email'),
-            'phone': document.getElementById('phone'),
-            'address': document.getElementById('address'),
-            'education': document.getElementById('education'),
-            'experience': document.getElementById('experience'),
-            'skills': document.getElementById('skills'),
-            'projects': document.getElementById('projects')
-        };
-
-        for (const key in elements) {
-            const originalText = elements[key].innerText;
-            const translatedText = translations[originalText];
-            if (translatedText) {
-                elements[key].innerText = translatedText;
-                console.log(`已翻译: ${originalText} -> ${translatedText}`);
-            } else {
-                console.log(`未找到翻译: ${originalText}`);
-            }
-        }
-
-        console.log('转换为英文完成');
     }
 });
