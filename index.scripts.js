@@ -9,12 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const translations = {
         zh: {
             translation: {
-                'name': '张三',
-                'email': 'Email: zhangsan@example.com',
+                'name': '北辰',
+                'email': 'Email: bc@bec.com',
                 'phone': '电话: 123-456-7890',
                 'address': '地址: 北京市朝阳区',
                 'education_title': '教育背景',
-                'education': '北京大学 - 计算机科学与技术专业',
+                'education': '清华大学 ',
                 'experience_title': '工作经历',
                 'experience': 'ABC科技有限公司 - 软件工程师',
                 'skills_title': '技能',
@@ -25,14 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         en: {
             translation: {
-                'name': 'John Doe',
-                'email': 'Email: john.doe@example.com',
+                'name': 'Zibo Ouyang',
+                'email': 'Email: andyoyang@gmail.com | Address: Beijing China',
                 'phone': 'Phone: 123-456-7890',
                 'address': 'Address: Chaoyang District, Beijing',
                 'education_title': 'Education Background',
-                'education': 'Peking University - Computer Science and Technology',
+                'education': 'Tsinghua University BioInformatics - Data Mining - Master - 2011.8~2014.7',
                 'experience_title': 'Work Experience',
-                'experience': 'ABC Technology Co., Ltd. - Software Engineer',
+                'experience': 'CITIC Bank - Senior Manager at IT Department - 2014.8~2019.12',
+                'experience': 'China AMC - VP at IT/Data Department - 2020.1~now',
                 'skills_title': 'Skills',
                 'skills': 'Proficient in Java, Python programming languages',
                 'projects_title': 'Project Experience',
