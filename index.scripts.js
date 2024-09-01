@@ -57,7 +57,7 @@
 //     URL.revokeObjectURL(url);
 // }
 
-function downloadPDF() {
+async function downloadPDF() {
     const element = document.getElementById('resume');
     html2pdf().from(element).set({
         margin: 10,
