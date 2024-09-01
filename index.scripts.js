@@ -61,7 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
         i18next.changeLanguage(currentLanguage, (err, t) => {
             if (err) return console.error('切换语言失败', err);
             updateContent();
-            document.getElementById('translate-btn').innerText = currentLanguage === 'zh' ? 'English Version' : '中文版';
+            const translateBtn = document.getElementById('translate-btn');
+            if (translateBtn) {
+                translateBtn.innerText = currentLanguage === 'zh' ? 'English Version' : '中文版';
+            }
         });
     }
 
