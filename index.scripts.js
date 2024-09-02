@@ -6,12 +6,19 @@ const translations = {
         education1: "<strong>Tsinghua University</strong> - BioInformatics - Data Mining - Master - 2011.8~2014.7",
         education2: "<strong>HUST</strong> - EE - Bachelor - 2006.9~2010.8",
         "experience-title": "Work",
-        experience1: "<strong>CITIC Bank</strong> - Senior Manager at IT Department - 2014.8~2019.12",
-        "experience1-desc": "Work on IT projects and Algorithm Models in Finance Marketing",
-        experience2: "<strong>China AMC</strong> - VP at IT/Data Department - 2020.1~now",
-        "experience2-desc": "Work as Financial Engineer in AI Marketing and Investments",
+
+        experience1: "<strong>China AMC</strong> - VP(IT/Data Dept.) - 2020.1~now",
+        "experience1-desc": "Work on AI Marketing and Investments Projects",
+
+        
+        experience2: "<strong>CITIC Bank</strong> - Senior Manager(IT&Trading Dept.) - 2014.8~2019.12",
+        "experience2-desc": "Work on IT projects and Algorithm Models in Finance Marketing",
+
+
+        
+
         "skills-title": "Skills",
-        skills: "Python/Java",
+        skills: "Python/Java/Web | Project Design & Implementation | Teamwork",
         "projects-title": "Experience",
         projects: "<strong>Project A</strong>",
         "translate-btn": "中文版本",
