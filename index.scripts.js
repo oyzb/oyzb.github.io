@@ -35,7 +35,7 @@ const resumeData = {
             items: [
                 {
                     name: "<strong>Publications</strong>",
-                    description: "<i>HerbBioMap2.0: A Chinese Medicine Database Miner, Construction & Analysis (Paper of Master)</i>",
+                    description: "<i>• HerbBioMap2.0: A Chinese Medicine Database Miner, Construction & Analysis (Paper of Master)</i>",
                     details: "In this paper, based on traditional Chinese medicine and herbal data as well as medical representation data, a database-level construction and analysis of Chinese herbal prescriptions, syndrome representations, drug chemical components, and active ingredients have been conducted. A clustering model for active ingredients based on the minimum set cover algorithm has been developed, providing an algorithmic foundation for the substitution theory of effective components in traditional Chinese medicine."
                 },
                 {
@@ -207,9 +207,13 @@ function toggleLanguage() {
 }
 
 function downloadPDF() {
+    // 隐藏按钮
+    const buttons = document.querySelector('.buttons');
+    buttons.style.display = 'none';
+
     const element = document.getElementById('resume');
     const opt = {
-        margin: 0,
+        margin: [15, 15, 15, 15], // [top, left, bottom, right] margins in millimeters
         filename: 'Zibo_Ouyang_Resume.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2 },
@@ -217,7 +221,10 @@ function downloadPDF() {
     };
 
     // 使用 Promise 来确保 PDF 生成完成后再显示按钮
-    html2pdf().set(opt).from(element).save();
+    html2pdf().set(opt).from(element).save().then(() => {
+        // PDF 生成完成后，显示按钮
+        buttons.style.display = 'flex';
+    });
 }
 
 // Initial render
