@@ -33,23 +33,29 @@ const resumeData = {
         projects: {
             title: "Experience",
             items: [
+
+                
                 {
                     name: "<strong>Publications</strong>",
                     description: "HerbBioMap2.0:a Chinese Medicine Database Miner (Paper of Master)"
                 },
                 {
-                    name: "<strong>Main Projects</strong>",
-                    description: "Financal Newtork Models\n\nDeveloped a capital network model leveraging transaction data for customer profiling and asset marketing, resulting in two consecutive innovation awards and a 50 billion increase in asset scale."
+                    name: "<strong>Featured Projects</strong>",
+                },
+
+                {
+                    name: "• Financial Newtork Models",
+                    description: "Developed a capital network model leveraging transaction data for customer profiling and asset marketing, resulting in two consecutive innovation awards and a 50 billion increase in asset scale."
 
                 },
                 {
-                    name: "Investment Profiling Bot",
+                    name: "• Investment Profiling Bot",
                     description: "Constructed an AI-driven investment research robot for customer and market analysis, optimizing asset allocation and product recommendations, leading to a 100,000+ increase in customer engagement."
 
                     
                 },
                 {
-                    name: "LLM Based RAG System for Research Report",
+                    name: "• LLM Based RAG System for Research Report",
                     description: "Implemented a large model-based research report search system with AI Agent, enhancing local data intelligence and achieving state-of-the-art standards in data output and investment analysis in the company."
                     
                     
