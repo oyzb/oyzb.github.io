@@ -37,25 +37,26 @@ const resumeData = {
                 
                 {
                     name: "<strong>Publications</strong>",
-                    description: "HerbBioMap2.0:a Chinese Medicine Database Miner (Paper of Master)"
+                    description: "HerbBioMap2.0:A Chinese Medicine Database Miner, Construction & Analysis (Paper of Master)"
                 },
                 {
                     name: "<strong>Featured Projects</strong>",
+                    description: ""
                 },
 
                 {
-                    name: "• Financial Newtork Models",
+                    name: "<i>• Financial Newtork Models</i>",
                     description: "Developed a capital network model leveraging transaction data for customer profiling and asset marketing, resulting in two consecutive innovation awards and a 50 billion increase in asset scale."
 
                 },
                 {
-                    name: "• Investment Profiling Bot",
+                    name: "<i>• Investment Profiling Bot</i>",
                     description: "Constructed an AI-driven investment research robot for customer and market analysis, optimizing asset allocation and product recommendations, leading to a 100,000+ increase in customer engagement."
 
                     
                 },
                 {
-                    name: "• LLM Based RAG System for Research Report",
+                    name: "<i>• LLM Based RAG System for Research Report</i>",
                     description: "Implemented a large model-based research report search system with AI Agent, enhancing local data intelligence and achieving state-of-the-art standards in data output and investment analysis in the company."
                     
                     
@@ -68,8 +69,64 @@ const resumeData = {
         }
     },
     zh: {
-        // Chinese version of the resume data
-        // ... (similar structure as English, but with Chinese content)
+        name: "欧阳子博",
+        contact: "邮箱: andyoyang@gmail.com | 地址: 中国北京",
+        education: {
+            title: "教育背景",
+            items: [
+                "<strong>清华大学</strong> - 生物信息学 - 数据挖掘 - 硕士 - 2011.8~2014.7",
+                "<strong>华中科技大学</strong> - 电子工程 - 学士 - 2006.9~2010.8"
+            ]
+        },
+        experience: {
+            title: "工作经历",
+            items: [
+                {
+                    company: "<strong>华夏基金</strong>",
+                    position: "副总裁(IT/数据部门)",
+                    period: "2020.1至今",
+                    description: "负责AI营销和投资项目"
+                },
+                {
+                    company: "<strong>中信银行</strong>",
+                    position: "高级经理(IT与交易部门)",
+                    period: "2014.8~2019.12",
+                    description: "负责金融营销领域的IT项目和算法模型"
+                }
+            ]
+        },
+        skills: {
+            title: "技能",
+            items: ["Python/Java/Web", "项目设计与实施", "团队合作"]
+        },
+        projects: {
+            title: "项目经验",
+            items: [
+                {
+                    name: "<strong>发表论文</strong>",
+                    description: "HerbBioMap2.0：中药数据库挖掘工具（硕士论文）"
+                },
+                {
+                    name: "<strong>特色项目</strong>",
+                },
+                {
+                    name: "• 金融网络模型",
+                    description: "开发了一个资金网络模型，利用交易数据进行客户画像和资产营销，连续两年获得创新奖，资产规模增加500亿。"
+                },
+                {
+                    name: "• 投资分析机器人",
+                    description: "构建了一个AI驱动的投资研究机器人，用于客户和市场分析，优化资产配置和产品推荐，使客户参与度增加了10万+。"
+                },
+                {
+                    name: "• 基于大语言模型的研报RAG系统",
+                    description: "实施了一个基于大模型的研究报告搜索系统，配合AI Agent，提升了本地数据智能，在公司内部实现了数据输出和投资分析的最高标准。"
+                }
+            ]
+        },
+        buttons: {
+            pdf: "PDF",
+            translate: "English Version"
+        }
     }
 };
 
