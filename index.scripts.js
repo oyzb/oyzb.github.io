@@ -5,8 +5,18 @@ const resumeData = {
         education: {
             title: "Education",
             items: [
-                "<strong>Tsinghua University</strong> - BioInformatics - Data Mining - Master - 2011.8~2014.7",
-                "<strong>HUST (Huazhong University of Science and Technology)</strong> - EE - Bachelor - 2006.9~2010.8"
+                {
+                    institution: "<strong>Tsinghua University</strong>",
+                    degree: "BioInformatics (Automation Dept.) - Master",
+                    period: "2011.8~2014.7",
+                    description: "Conducting research on developing algorithms for pharmaceutical active ingredients in the Laboratory of Bioinformatics, under the guidance of Professor Shao Li."
+                },
+                {
+                    institution: "<strong>HUST (Huazhong University of Science and Technology)</strong>",
+                    degree: "EE (Electronic Engineering) - Bachelor",
+                    period: "2006.9~2010.8",
+                    description: ""
+                }
             ]
         },
         experience: {
@@ -28,7 +38,7 @@ const resumeData = {
         },
         skills: {
             title: "IT Skills",
-            items: ["Python/Java/Web", "Project Design & Implementation", "Teamwork"]
+            items: ["Skilled in Python and Java; proficient in data processing and analysis", "Project Design & Implementation", "Teamwork"]
         }, 
         projects: {
             title: "Experience",
@@ -49,14 +59,10 @@ const resumeData = {
                 {
                     name: "<i>• Investment Profiling Bot</i>",
                     description: "Constructed an AI-driven investment research robot for customer and market analysis, optimizing asset allocation and product recommendations, leading to a 100,000+ increase in customer engagement."
-
-                    
                 },
                 {
                     name: "<i>• LLM Based RAG System for Research Report</i>",
                     description: "Implemented a large model-based research report search system with AI Agent, enhancing local data intelligence and achieving state-of-the-art standards in data output and investment analysis in the company."
-                    
-                    
                 }
             ]
         },
@@ -71,8 +77,18 @@ const resumeData = {
         education: {
             title: "教育背景",
             items: [
-                "<strong>清华大学</strong> - 生物信息学 - 数据挖掘 - 硕士 - 2011.8~2014.7",
-                "<strong>华中科技大学</strong> - 电子工程 - 学士 - 2006.9~2010.8"
+                {
+                    institution: "<strong>清华大学</strong>",
+                    degree: "生物信息学 - 硕士",
+                    period: "2011.8~2014.7",
+                    description: "在生物信息学实验室进行药物活性成分算法开发的研究，指导老师为李韶教授。"
+                },
+                {
+                    institution: "<strong>华中科技大学</strong>",
+                    degree: "电子工程 - 学士",
+                    period: "2006.9~2010.8",
+                    description: ""
+                }
             ]
         },
         experience: {
@@ -153,7 +169,10 @@ function renderResume(lang) {
     html += `
         <div class="section">
             <h2>${data.education.title}</h2>
-            ${data.education.items.map(item => `<p>${item}</p>`).join('')}
+            ${data.education.items.map(item => `
+                <p>${item.institution} - ${item.degree} - ${item.period}</p>
+                ${item.description ? `<p>${item.description}</p>` : ''}
+            `).join('')}
         </div>
     `;
 
