@@ -1,18 +1,18 @@
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.3;
+    line-height: 1.2;
     color: #333;
     margin: 0;
     padding: 0;
     background-color: #fff;
-    font-size: 10pt;
+    font-size: 9pt;
 }
 
 #resume-container {
     max-width: 210mm; /* A4 width */
     height: 297mm; /* A4 height */
     margin: 0 auto;
-    padding: 20mm;
+    padding: 15mm;
     box-sizing: border-box;
 }
 
@@ -25,44 +25,52 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 10mm;
+    margin-bottom: 5mm;
 }
 
 .header h1 {
     margin: 0;
     color: #2c3e50;
-    font-size: 18pt;
+    font-size: 16pt;
 }
 
 .buttons {
-    display: none; /* Hide buttons in print */
+    display: flex;
+    gap: 5mm;
+    margin-top: 2mm;
+}
+
+.buttons button {
+    padding: 2mm 4mm;
+    font-size: 8pt;
+    cursor: pointer;
 }
 
 .photo img {
-    width: 30mm;
-    height: 30mm;
+    width: 25mm;
+    height: 25mm;
     border-radius: 50%;
     object-fit: cover;
 }
 
 .contact-info {
-    margin-bottom: 5mm;
+    margin-bottom: 3mm;
 }
 
 .section {
-    margin-bottom: 10mm;
+    margin-bottom: 5mm;
 }
 
 h2 {
     color: #3498db;
     border-bottom: 1px solid #3498db;
-    padding-bottom: 2mm;
-    font-size: 14pt;
-    margin-bottom: 3mm;
+    padding-bottom: 1mm;
+    font-size: 12pt;
+    margin-bottom: 2mm;
 }
 
 p {
-    margin-bottom: 2mm;
+    margin-bottom: 1mm;
 }
 
 ul {
@@ -76,7 +84,7 @@ li {
 
 /* Compact layout for experience and projects */
 .experience-item, .project-item {
-    margin-bottom: 3mm;
+    margin-bottom: 2mm;
 }
 
 .experience-item p, .project-item p {
@@ -90,16 +98,6 @@ li {
 }
 
 @media print {
-    body {
-        background-color: #fff;
-    }
-    
-    #resume-container {
-        box-shadow: none;
-        margin: 0;
-        padding: 20mm;
-    }
-
     .buttons {
         display: none;
     }
