@@ -6,7 +6,7 @@ resumeData = JSON.parse(localStorage.getItem('resumeData')) || {
         // ... (keep the existing resumeData object as fallback)
     }
 };
- 
+  
 resumeData = resumeData || {
     en: {
         name: "Zibo Ouyang",
