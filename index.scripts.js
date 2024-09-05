@@ -6,48 +6,45 @@ const resumeData = {
             title: "Education",
             items: [
                 "<strong>Tsinghua University</strong> - BioInformatics - Data Mining - Master - 2011.8~2014.7",
-                "<strong>HUST</strong> - EE - Bachelor - 2006.9~2010.8"
+                "<strong>HUST (Huazhong University of Science and Technology)</strong> - EE - Bachelor - 2006.9~2010.8"
             ]
         },
         experience: {
-            title: "Work",
+            title: "Work Experience",
             items: [
                 {
-                    company: "<strong>China AMC</strong>",
-                    position: "VP(IT/Data Dept.)",
+                    company: "<strong>ChinaAMC</strong> - Second largest asset management company in China",
+                    position: "VP (IT/Data Dept.)",
                     period: "2020.1~now",
                     description: "Work on AI Marketing and Investments Projects"
                 },
                 {
-                    company: "<strong>CITIC Bank</strong>",
-                    position: "Senior Manager(IT&Trading Dept.)",
+                    company: "<strong>CITIC Bank</strong> - One of the largest commercial banks in China",
+                    position: "Senior Manager (IT&Trading Dept.)",
                     period: "2014.8~2019.12",
                     description: "Work on IT projects and Algorithm Models in Finance Marketing"
                 }
             ]
         },
         skills: {
-            title: "Skills",
+            title: "IT Skills",
             items: ["Python/Java/Web", "Project Design & Implementation", "Teamwork"]
         },
         projects: {
             title: "Experience",
             items: [
-
-                
                 {
                     name: "<strong>Publications</strong>",
-                    description: "HerbBioMap2.0: A Chinese Medicine Database Miner, Construction & Analysis (Paper of Master)"
+                    description: "HerbBioMap2.0: A Chinese Medicine Database Miner, Construction & Analysis (Paper of Master)",
+                    details: "In this paper, based on traditional Chinese medicine and herbal data as well as medical representation data, a database-level construction and analysis of Chinese herbal prescriptions, syndrome representations, drug chemical components, and active ingredients have been conducted. A clustering model for active ingredients based on the minimum set cover algorithm has been developed, providing an algorithmic foundation for the substitution theory of effective components in traditional Chinese medicine."
                 },
                 {
                     name: "<strong>Featured Projects</strong>",
                     description: ""
                 },
-
                 {
-                    name: "<i>• Financial Newtork Models</i>",
+                    name: "<i>• Financial Network Models</i>",
                     description: "Developed a capital network model leveraging transaction data for customer profiling and asset marketing, resulting in two consecutive innovation awards and a 50 billion increase in asset scale."
-
                 },
                 {
                     name: "<i>• Investment Profiling Bot</i>",
@@ -119,7 +116,7 @@ const resumeData = {
                 },
                 {
                     name: "• 基于大语言模型的研报RAG系统",
-                    description: "实施了一个基于大模型的研究报告搜索系统，配合AI Agent，提升了本地数据智能，在公司内部实现了数据输出和投资分析的最高标准。"
+                    description: "实施了一个基于大模型的研究告搜索系统，配合AI Agent，提升了本地数据智能，在公司内部实现了数据输出和投资分析的最高标准。"
                 }
             ]
         },
@@ -138,17 +135,13 @@ function renderResume(lang) {
         <div class="header">
             <div>
                 <h1 id="name">${data.name}</h1>
-                <div class="buttons" id="control-buttons">
-                    <button id="download-pdf-btn">${data.buttons.pdf}</button>
-                    <button id="translate-btn">${data.buttons.translate}</button>
+                <div class="contact-info">
+                    <p id="contact">${data.contact}</p>
                 </div>
             </div>
             <div class="photo">
                 <img src="photo.jpg" alt="${data.name}'s photo">
             </div>
-        </div>
-        <div class="contact-info">
-            <p id="contact">${data.contact}</p>
         </div>
     `;
 
@@ -165,8 +158,11 @@ function renderResume(lang) {
         <div class="section">
             <h2>${data.experience.title}</h2>
             ${data.experience.items.map(item => `
-                <p>${item.company} - ${item.position} - ${item.period}</p>
-                <p>${item.description}</p>
+                <div class="experience-item">
+                    <p><strong>${item.company}</strong></p>
+                    <p>${item.position} - ${item.period}</p>
+                    <p>${item.description}</p>
+                </div>
             `).join('')}
         </div>
     `;
@@ -175,7 +171,9 @@ function renderResume(lang) {
     html += `
         <div class="section">
             <h2>${data.skills.title}</h2>
-            <p>${data.skills.items.join(' | ')}</p>
+            <div class="skills-list">
+                ${data.skills.items.map(item => `<p>${item}</p>`).join('')}
+            </div>
         </div>
     `;
 
@@ -184,8 +182,11 @@ function renderResume(lang) {
         <div class="section">
             <h2>${data.projects.title}</h2>
             ${data.projects.items.map(item => `
-                <p>${item.name}</p>
-                <p>${item.description}</p>
+                <div class="project-item">
+                    <p>${item.name}</p>
+                    <p>${item.description}</p>
+                    ${item.details ? `<p>${item.details}</p>` : ''}
+                </div>
             `).join('')}
         </div>
     `;
@@ -203,24 +204,17 @@ function toggleLanguage() {
 }
 
 function downloadPDF() {
-    // 隐藏控制按钮
-    const controlButtons = document.getElementById('control-buttons');
-    controlButtons.style.display = 'none';
-
     const element = document.getElementById('resume');
     const opt = {
-        margin:       10,
-        filename:     'Zibo_Ouyang_Resume.pdf',
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2 },
-        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        margin: 0,
+        filename: 'Zibo_Ouyang_Resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
 
     // 使用 Promise 来确保 PDF 生成完成后再显示按钮
-    html2pdf().set(opt).from(element).save().then(() => {
-        // PDF 生成完成后，显示控制按钮
-        controlButtons.style.display = 'block';
-    });
+    html2pdf().set(opt).from(element).save();
 }
 
 // Initial render
