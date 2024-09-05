@@ -37,7 +37,7 @@ const resumeData = {
                 
                 {
                     name: "<strong>Publications</strong>",
-                    description: "HerbBioMap2.0:A Chinese Medicine Database Miner, Construction & Analysis (Paper of Master)"
+                    description: "HerbBioMap2.0: A Chinese Medicine Database Miner, Construction & Analysis (Paper of Master)"
                 },
                 {
                     name: "<strong>Featured Projects</strong>",
