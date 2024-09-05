@@ -35,7 +35,7 @@ const resumeData = {
             items: [
                 {
                     name: "<strong>Publications</strong>",
-                    description: "HerbBioMap2.0: A Chinese Medicine Database Miner, Construction & Analysis (Paper of Master)",
+                    description: "<i>HerbBioMap2.0: A Chinese Medicine Database Miner, Construction & Analysis (Paper of Master)</i>",
                     details: "In this paper, based on traditional Chinese medicine and herbal data as well as medical representation data, a database-level construction and analysis of Chinese herbal prescriptions, syndrome representations, drug chemical components, and active ingredients have been conducted. A clustering model for active ingredients based on the minimum set cover algorithm has been developed, providing an algorithmic foundation for the substitution theory of effective components in traditional Chinese medicine."
                 },
                 {
