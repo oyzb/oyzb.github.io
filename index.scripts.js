@@ -1,4 +1,13 @@
-const resumeData = {
+resumeData = JSON.parse(localStorage.getItem('resumeData')) || {
+    en: {
+        // ... (keep the existing resumeData object as fallback)
+    },
+    zh: {
+        // ... (keep the existing resumeData object as fallback)
+    }
+};
+
+resumeData = resumeData || {
     en: {
         name: "Zibo Ouyang",
         contact: "Email: andyoyang@gmail.com | Address: Beijing China",
@@ -141,6 +150,7 @@ function renderResume(lang) {
                 <div class="buttons" id="control-buttons">
                     <button id="download-pdf-btn">${data.buttons.pdf}</button>
                     <button id="translate-btn">${data.buttons.translate}</button>
+                    <button id="edit-btn">Edit</button>
                 </div>
             </div>
             <div class="photo">
@@ -195,6 +205,9 @@ function renderResume(lang) {
     // Re-attach event listeners
     document.getElementById('translate-btn').addEventListener('click', toggleLanguage);
     document.getElementById('download-pdf-btn').addEventListener('click', downloadPDF);
+    document.getElementById('edit-btn').addEventListener('click', () => {
+        window.location.href = 'edit.html';
+    });
 }
 
 function toggleLanguage() {
