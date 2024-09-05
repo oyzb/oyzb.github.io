@@ -138,6 +138,10 @@ function renderResume(lang) {
                 <div class="contact-info">
                     <p id="contact">${data.contact}</p>
                 </div>
+                <div class="buttons">
+                    <button id="download-pdf-btn">${data.buttons.pdf}</button>
+                    <button id="translate-btn">${data.buttons.translate}</button>
+                </div>
             </div>
             <div class="photo">
                 <img src="photo.jpg" alt="${data.name}'s photo">
@@ -159,8 +163,7 @@ function renderResume(lang) {
             <h2>${data.experience.title}</h2>
             ${data.experience.items.map(item => `
                 <div class="experience-item">
-                    <p><strong>${item.company}</strong></p>
-                    <p>${item.position} - ${item.period}</p>
+                    <p><strong>${item.company}</strong> - ${item.position} - ${item.period}</p>
                     <p>${item.description}</p>
                 </div>
             `).join('')}
