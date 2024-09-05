@@ -1,7 +1,7 @@
 const resumeData = {
     en: {
         name: "Zibo Ouyang",
-        contact: "Email: andyoyang@gmail.com | Address: Beijing China",
+        contact: "Email: andyoyang@gmail.com | Address: Beijing China | Homepage: https://oyzb.github.io",
         education: {
             title: "Education",
             items: [
@@ -29,7 +29,7 @@ const resumeData = {
         skills: {
             title: "IT Skills",
             items: ["Python/Java/Web", "Project Design & Implementation", "Teamwork"]
-        },
+        }, 
         projects: {
             title: "Experience",
             items: [
