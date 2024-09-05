@@ -79,10 +79,12 @@ function renderResume(lang) {
     const data = resumeData[lang];
     let html = `
         <div class="header">
-            <h1 id="name">${data.name}</h1>
-            <div class="buttons" id="control-buttons">
-                <button id="download-pdf-btn">${data.buttons.pdf}</button>
-                <button id="translate-btn">${data.buttons.translate}</button>
+            <div>
+                <h1 id="name">${data.name}</h1>
+                <div class="buttons" id="control-buttons">
+                    <button id="download-pdf-btn">${data.buttons.pdf}</button>
+                    <button id="translate-btn">${data.buttons.translate}</button>
+                </div>
             </div>
             <div class="photo">
                 <img src="photo.jpg" alt="${data.name}'s photo">
