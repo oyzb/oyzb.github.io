@@ -6,7 +6,7 @@ let resumeData = JSON.parse(localStorage.getItem('resumeData')) || {
         // ... (copy the entire resumeData object from index.scripts.js)
     }
 };
-
+ 
 function renderEditForm() {
     const form = document.getElementById('edit-form');
     let html = '';
