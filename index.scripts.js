@@ -28,7 +28,7 @@ const resumeData = {
         },
         skills: {
             title: "IT Skills",
-            items: ["Python/Java/Web", "Project Design & Implementation", "Teamwork"]
+            items: ["Skilled in Python and Java; proficient in data processing and analysis", "Project Design & Implementation", "Teamwork"]
         }, 
         projects: {
             title: "Experience",
